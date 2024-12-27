@@ -56,7 +56,3 @@ individual functions and then combined them into the final program.
 For support, email malandealwis@gmail.com 
 
 
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
