@@ -32,12 +32,13 @@ individual functions and then combined them into the final program.
 - stu_database.csv 
 - mainEXE.exe 
 ### To compile the Program : 
-
-
-
-
 ```bash
    gcc .\main.c .\timeslot.c .\filehandle.c .\studentInfo.c -o .\mainEXE.exe   
+```
+
+### To Run the Program : 
+```bash
+   .\mainEXE.exe   
 ```
     
 ### Features:
