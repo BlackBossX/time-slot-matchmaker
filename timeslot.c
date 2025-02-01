@@ -11,7 +11,7 @@ typedef struct
     char stu_no[10]; // put extra character here because when we read we read without the last index
     char name[20];
     char mobile[11];
-} student; // this is the name for our struct
+} student;
 
 FILE *time_file;
 
@@ -26,15 +26,13 @@ typedef struct
     char time_empty[2];
 } timeslot;
 
-
 int data_validation()
 {
-
     FILE *fl;
-    fl = fopen("stu_database.csv", "r"); // file open
+    fl = fopen("stu_database.csv", "r");
 
     if (fl == NULL)
-        printf("NO file detected\n"); // file detection
+        printf("NO file detected\n");
 
     student Student[80]; // object of the struct Student [80] means how many students can have in this struct
 
@@ -48,32 +46,30 @@ int data_validation()
                       Student[row].name,
                       Student[row].mobile);
 
-        /*this %[^,] use to declear the data type
-        thats mean this is also a pointer(array) so dont need to
-        put %s or %d when we use that kind of data type we need to put those
+            /*this %[^,] use to declear the data type
+            thats mean this is also a pointer(array) so dont need to
+            put %s or %d when we use that kind of data type we need to put those
 
-          also keep it mind use less character than intialized variable
-          ^ simple for stop before ,
+            also keep it mind use less character than intialized variable
+            ^ simple for stop before ,
 
-          %9[^,]: Reads up to 9 characters
-          (excluding the comma) into Student[row].stu_no.
+            %9[^,]: Reads up to 9 characters
+            (excluding the comma) into Student[row].stu_no.
+            */
 
-          */
         if (read == 3)
             row++;
 
-    } while (!feof(fl)); // run until end of the file !feof means that
+    } while (!feof(fl));
 
     fclose(fl);
-
-    // printf("\n%d\n", row);
 
     time_file = fopen("time_slots.csv", "r");
 
     timeslot time_slot[80];
 
-    int read_time_parts = 0; // this is for read the how many parts in the row
-    int time_rows = 0;       // this is for count the number of rows in the csv
+    int read_time_parts = 0;
+    int time_rows = 0;
 
     do
     {
@@ -89,26 +85,17 @@ int data_validation()
         if (read_time_parts == 7)
             time_rows++;
 
-    } while (!feof(time_file)); // run until end of the file !feof means that
+    } while (!feof(time_file));
     fclose(time_file);
     time_rows++;
 
-    //  printf("\n%d\n", time_rows);
+    char *input_time = (char *)malloc(3 * sizeof(char));
 
-    // printf("\n%d\n", time_rows);
-    //  printf("\n%d\n", read_time_parts);
-
-    char *input_time = (char *)malloc(3 * sizeof(char)); //malloc in stdlib library 
-
-    //  printf("%s\n", time_slot[1].time1);
     printf("\nEnter your time slot to check availability:");
     printf("\nEg: 10 for check 10 AM and to check 6 PM type 18\n");
-
     scanf("%2s", input_time);
 
-    printf("\nThese students are available for your chosen time...\n");
-
-    printf("\n");
+    printf("\nThese students are available for your chosen time...\n\n");
 
     for (int u = 0; u < time_rows; u++)
     {
@@ -130,35 +117,9 @@ int data_validation()
             }
             printf("\n");
         }
-        //  else
-        // printf("He is not FOUND\n\n");
     }
-    
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -166,7 +127,6 @@ int data_validation()
 FILE *time_file;
 int enter_time_slot()
 {
-
     time_file = fopen("time_slots.csv", "a");
 
     char times_list[30];
@@ -198,7 +158,6 @@ int enter_time_slot()
 
         token = strtok(NULL, del);
     }
-
     fclose(time_file);
 }
 

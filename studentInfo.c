@@ -10,7 +10,6 @@ int Mobile_sizecheck(int defaultVal,int sizeEn);
 
 char get_stu_info()
 {
- 
     printf("Enter Your Student NO: \n");
     printf("Eg: EC2022012\n");
     scanf("%s", stuno);
@@ -29,13 +28,11 @@ char get_stu_info()
 char *print_stu_no()
 {
     // this char* use to return string because we cant directly return string value. this is the returing the pointer method
-    // printf("\n%s",stu_info[0]);
     return stuno;
 }
 
 char *print_stu_name()
 {
-    // printf("\n%s",stu_info[1]);
     return stu_name;
 }
 
@@ -44,8 +41,6 @@ char *print_stu_mobile()
     // printf("\n%s",stu_info[2]);
     return stu_mobile;
 }
-
-
 
 
 
@@ -75,7 +70,6 @@ while(i){
         sizeEn = strlen(stu_mobile);
     }
 }
-
 }
 
 

@@ -4,16 +4,13 @@
 #include "filehandle.h"
 #include "timeslot.h"
 
-int main()
-{
-
+int main() {
     printf("\n... Welcome to Study Buddy ...\n");
     printf("Would you like to register? (y/n):\n");
     char reg_answer;
     scanf(" %c", &reg_answer);
 
-    while (reg_answer != 'y' && reg_answer != 'n')
-    {
+    while (reg_answer != 'y' && reg_answer != 'n') {
         printf("Invalid Input Enter Again\n");
         scanf(" %c", &reg_answer);
 
@@ -29,8 +26,7 @@ int main()
         */
     }
 
-    if (reg_answer == 'y')
-    {
+    if (reg_answer == 'y') {
         printf("\nPlease enter your details: \n\n");
         get_stu_info();
         stu_data_csv_write();
@@ -41,8 +37,7 @@ int main()
     char slot_answer;
     scanf(" %c", &slot_answer);
 
-    while (slot_answer != 't' && slot_answer != 'm')
-    {
+    while (slot_answer != 't' && slot_answer != 'm') {
         printf("Invalid Input Enter Again\n");
         scanf(" %c", &slot_answer);
     }
@@ -51,19 +46,13 @@ int main()
         enter_time_slot();
 
     printf("\nChecking available time slots...\n");
- 
-        char ans;
-        
-        do
-        {
-            
-           data_validation();
-           printf("Do you want to continue checking slots ? (y/n): \n");
-          // fgets(ans,2,stdin);
-           scanf(" %c",&ans);
-        } while (ans=='y');
-        
-        printf("\nHave a nice Day...\n\n");
-        
 
+    char ans;
+    do {
+        data_validation();
+        printf("Do you want to continue checking slots ? (y/n): \n");
+        scanf(" %c", &ans);
+    } while (ans == 'y');
+
+    printf("\nHave a nice Day...\n\n");
 }
